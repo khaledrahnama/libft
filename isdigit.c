@@ -6,14 +6,11 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:30:26 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/05 11:54:41 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/05 12:02:13 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	return (c >= '0' && c <= '9');
 }

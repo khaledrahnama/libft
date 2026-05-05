@@ -6,14 +6,11 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:22:06 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/05 11:50:52 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/05 12:02:18 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
+	return((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
