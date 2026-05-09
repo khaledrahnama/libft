@@ -3,9 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krahnama <krahnama@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 19:35:21 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/08 19:35:25 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/09 12:12:23 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	ft_isascii(int c)
+{
+	return (c >= 0 && c <= 127);
+}
