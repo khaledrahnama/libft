@@ -6,13 +6,13 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 19:49:49 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/08 21:22:30 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/09 14:37:30 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int ft_isalnum(int c)
 {
-    return(ft_isalpha(c) || ft_isalnum(c));
+    return(ft_isalpha(c) || ft_isdigit(c));
 }
