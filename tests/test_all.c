@@ -52,6 +52,8 @@ int main(void)
         test_char("ft_isascii", ft_isascii, isascii, c);
         test_char("ft_isdigit", ft_isdigit, isdigit, c);
         test_char("ft_isprint", ft_isprint, isprint, c);
+        test_char("ft_isupper", ft_isupper, isupper,c);
+        test_char("ft_islower", ft_islower, islower,c);
 
         c++;
     }
