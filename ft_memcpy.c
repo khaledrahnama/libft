@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krahnama <krahnama@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/10 17:54:36 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/10 18:07:37 by krahnama         ###   ########.fr       */
+/*   Created: 2026/05/10 14:29:14 by krahnama          #+#    #+#             */
+/*   Updated: 2026/05/10 18:22:48 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft.h"
 #include <string.h>
@@ -27,20 +28,23 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 		s++;
 		n--;
 	}
-	return (dest);
+    return (dest);
 }
 
 int main()
 {
-	char src = "abcd";
-	char dest[4];
+	char src[]="abcd";
+	char dest1[4];
+    char dest2[4];
 	size_t n = 2;
-	printf("dest before: %s \n", dest);
-	ft_memcpy(dest,src,n);
-	printf("dest after: %s \n",dest);
-	printf("dest before: %s \n", dest);
-	memcpy(dest,src,n);
-	printf("dest after: %s \n",dest);
+    
+	printf("dest before: %s \n", dest1);
+	ft_memcpy(dest1,src,n);
+	printf("dest after: %s \n",dest1);
+
+	printf("dest before: %s \n", dest2);
+	memcpy(dest2,src,n);
+	printf("dest after: %s \n",dest2);
 
 
 }
