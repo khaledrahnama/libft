@@ -6,12 +6,11 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:11:11 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/11 20:31:49 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/11 20:35:18 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -27,6 +26,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 /*
+#include <stdio.h>
 int	main(void)
 {
 	char str[]="abcdefghi";
