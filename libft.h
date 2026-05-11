@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 09:55:17 by khaledrahna       #+#    #+#             */
-/*   Updated: 2026/05/09 16:45:32 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/11 22:19:38 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int     ft_isupper(int c);
 int     ft_islower(int c);
 size_t	ft_strlen(const char *s);
 void	*memset(void *s, int c, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
+char	*ft_strchr(const char *s, int c);
 
 
 #endif
