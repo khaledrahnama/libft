@@ -22,15 +22,14 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (n--)
 	{
 		if (*s1_ptr != *s2_ptr)
-			return (*s1_ptr - *s2_ptr);
+        return (*s1_ptr - *s2_ptr);
 		s1_ptr++;
 		s2_ptr++;
 	}
 	return (0);
 }
-/*
+/* 
 #include <stdio.h>
-
 int	main(void)
 {
 	char s1[] = "abcdffghsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf";

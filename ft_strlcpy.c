@@ -135,7 +135,7 @@ int main()
     int i;
     i = 0;
 
-    ft_strlcpy(dest, src , 50);
+    ft_strlcpy(dest, src , sizeof(dest));
     printf("%s\n ", dest);
 
     while(i<200)
