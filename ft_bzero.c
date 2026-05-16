@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:08:00 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/10 21:24:51 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/15 14:09:14 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,19 @@ RETURN VALUE
 		None.
 		*/
 
-#include "libft.h"
+/* #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
+}
+ */
+
+#include "libft.h"
+
+ void ft_bzero(void *s, size_t n)
+{
+    unsigned char *ptr = s;
+    while (n--)
+        *ptr++ = 0;
 }
