@@ -60,4 +60,49 @@ int main(void)
   
     
      return (0);
+}#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
+#include "../libft.h"
+
+// helpers 
+void    test_char_fn(char *fn_name, int (*my)(int), int (*real)(int), int c)
+{
+    int my_r   = my(c);
+    int real_r = (real(c) != 0);   // normalize to 0 or 1
+    if (my_r == real_r)
+        printf("✅ PASS — %s('%c' = %d)\n", fn_name, c, c);
+    else
+        printf("❌ FAIL — %s('%c') got %d, expected %d\n",
+            fn_name, c, my_r, real_r);
+}
+
+// char classification
+
+void    run_isalpha(void)
+{
+    printf("\n--- ft_isalpha ---\n");
+    test_char_fn("isalpha", ft_isalpha, isalpha, 'a');
+    test_char_fn("isalpha", ft_isalpha, isalpha, 'Z');
+    test_char_fn("isalpha", ft_isalpha, isalpha, '5');
+    test_char_fn("isalpha", ft_isalpha, isalpha, ' ');
+    test_char_fn("isalpha", ft_isalpha, isalpha, '!');
+}
+
+void    run_isdigit(void)
+{
+    printf("\n--- ft_isdigit ---\n");
+    test_char_fn("isdigit", ft_isdigit, isdigit, '0');
+    test_char_fn("isdigit", ft_isdigit, isdigit, '9');
+    test_char_fn("isdigit", ft_isdigit, isdigit, 'a');
+    test_char_fn("isdigit", ft_isdigit, isdigit, '/');  
+    test_char_fn("isdigit", ft_isdigit, isdigit, ':');  
+}
+
+int     main(void)
+{
+    run_isalpha();
+    run_isdigit();
+    return (0);
 }

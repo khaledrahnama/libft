@@ -1,0 +1,1917 @@
+libft Part 2 + Bonus (linked lists) is large enough that a full “all functions + deep explanation + tests + edge cases” answer becomes essentially a small book.
+
+
+So the remaining important ones are:
+
+⸻
+
+ft_strjoin
+
+Goal
+
+Concatenate two strings into a new allocated string.
+
+ft_strjoin("Hello ", "World")
+
+returns:
+
+"Hello World"
+
+
+Implementation
+
+#include <stdlib.h>
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*res;
+	size_t	i;
+	size_t	j;
+	if (!s1 || !s2)
+		return (NULL);
+	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		res[i + j] = s2[j];
+		j++;
+	}
+	res[i + j] = '\0';
+	return (res);
+}
+
+⸻
+
+Important Concepts
+
+You cannot modify string literals safely:
+
+Wrong:
+
+s1 += s2;
+
+C strings are arrays of chars ending with '\0'.
+
+So you allocate a new area large enough for both.
+
+⸻
+
+Memory Layout
+
+s1 = "abc"
+s2 = "de"
+allocate:
+[a][b][c][d][e][\0]
+
+⸻
+
+Edge Cases
+
+Empty strings
+
+ft_strjoin("", "")
+
+must return allocated empty string.
+
+⸻
+
+NULL pointers
+
+ft_strjoin(NULL, "abc")
+
+should return NULL.
+
+⸻
+
+Tests
+
+printf("%s\n", ft_strjoin("Hello ", "42"));
+printf("%s\n", ft_strjoin("", ""));
+printf("%s\n", ft_strjoin("abc", ""));
+
+⸻
+
+ft_putchar_fd
+
+Goal
+
+Write one character to file descriptor.
+
+⸻
+
+Implementation
+
+#include <unistd.h>
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+⸻
+
+Key Idea
+
+write prototype:
+
+ssize_t write(int fd, const void *buf, size_t count);
+
+* fd = 1 → stdout
+* fd = 2 → stderr
+
+⸻
+
+Test
+
+ft_putchar_fd('A', 1);
+
+⸻
+
+ft_putstr_fd
+
+Implementation
+
+#include <unistd.h>
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
+
+⸻
+
+Edge Cases
+
+NULL string
+
+Must not crash.
+
+⸻
+
+ft_putendl_fd
+
+Adds newline automatically
+
+⸻
+
+Implementation
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
+
+⸻
+
+Test
+
+ft_putendl_fd("Hello", 1);
+
+Output:
+
+Hello
+
+⸻
+
+ft_putnbr_fd
+
+Hard Part
+
+Negative numbers.
+
+Especially:
+
+INT_MIN
+
+⸻
+
+Implementation
+
+#include <unistd.h>
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	num;
+	num = n;
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num = -num;
+	}
+	if (num >= 10)
+		ft_putnbr_fd(num / 10, fd);
+	ft_putchar_fd((num % 10) + '0', fd);
+}
+
+⸻
+
+Why Recursion Works
+
+Example:
+
+1234
+1234 / 10 = 123
+123 / 10 = 12
+12 / 10 = 1
+
+Then prints back while returning.
+
+⸻
+
+Linked List Bonus
+
+⸻
+
+Typical Structure
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+⸻
+
+ft_lstnew
+
+Goal
+
+Create one node.
+
+⸻
+
+Implementation
+
+#include <stdlib.h>
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*node;
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
+}
+
+⸻
+
+Memory Visualization
+
+[node]
+ content -> data
+ next -> NULL
+
+⸻
+
+ft_lstadd_front
+
+Implementation
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}
+
+⸻
+
+Key Idea
+
+Before:
+head -> A -> B
+Add X:
+X -> A -> B
+head = X
+
+⸻
+
+ft_lstsize
+
+Implementation
+
+int	ft_lstsize(t_list *lst)
+{
+	int	count;
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
+}
+
+⸻
+
+Edge Case
+
+Empty list:
+
+NULL
+
+returns 0.
+
+⸻
+
+ft_lstlast
+
+Implementation
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
+⸻
+
+ft_lstadd_back
+
+Implementation
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = new;
+}
+
+⸻
+
+Important Edge Case
+
+Empty list.
+
+⸻
+
+ft_lstdelone
+
+Implementation
+
+#include <stdlib.h>
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+⸻
+
+Key Concept
+
+Need BOTH:
+
+del(content)
+free(node)
+
+because content may also be dynamically allocated.
+
+⸻
+
+ft_lstiter
+
+Implementation
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
+
+⸻
+
+Difference vs lstmap
+
+lstiter:
+
+* modifies existing list
+
+lstmap:
+
+* creates NEW list
+
+⸻
+
+Most Common Bonus Mistakes
+
+1. Losing head pointer
+
+Wrong:
+
+lst = lst->next;
+
+without saving original.
+
+⸻
+
+2. Memory leaks
+
+Especially:
+
+* split
+* lstmap
+
+⸻
+
+3. Forgetting NULL checks
+
+if (!s)
+
+⸻
+
+4. Infinite loops in lists
+
+Forgetting:
+
+lst = lst->next;
+
+⸻
+
+Recommended Practice Order
+
+1. substr
+2. strjoin
+3. strtrim
+4. itoa
+5. split
+6. _fd
+7. linked list basics
+8. lstmap
+
+because each introduces a new important concept:
+
+* allocation
+* boundaries
+* recursion
+* function pointers
+* linked structures
+* cleanup on failure
+
+Deep Dive Continuation — libft Part 2 + Bonus
+
+Now let’s go deeper into:
+
+* debugging mindset
+* hidden edge cases
+* memory diagrams
+* tester-style cases
+* common Moulinette traps
+* implementation logic
+
+⸻
+
+Understanding Memory Allocation Properly
+
+One of the biggest libft difficulties is understanding:
+
+malloc()
+
+Example:
+
+char *s;
+s = malloc(6);
+
+Memory becomes:
+
+Address: 1000 1001 1002 1003 1004 1005
+Value:     ?    ?    ?    ?    ?    ?
+
+After:
+
+strcpy(s, "hello");
+1000: h
+1001: e
+1002: l
+1003: l
+1004: o
+1005: \0
+
+⸻
+
+Why '\0' Is Critical
+
+C strings are not objects.
+
+C only knows a string ended because of:
+
+'\0'
+
+Without it:
+
+printf("%s", str);
+
+keeps reading random memory.
+
+⸻
+
+Dangerous Bug Example
+
+Wrong:
+
+char *s = malloc(5);
+strcpy(s, "hello");
+
+Why wrong?
+
+Because:
+
+h e l l o \0
+
+needs 6 bytes.
+
+This causes:
+
+* overflow
+* crashes
+* undefined behavior
+
+⸻
+
+ft_split — Complete Internal Logic
+
+⸻
+
+Example Input
+
+ft_split("hello::42::libft", ':');
+
+⸻
+
+Step 1 — Count Words
+
+Goal:
+
+hello
+42
+libft
+
+Need 3 strings.
+
+⸻
+
+Internal Traversal
+
+hello::42::libft
+^^^^^
+word 1
+       ^^
+skip delimiters
+         ^^
+word 2
+             ^^
+skip delimiters
+               ^^^^^
+word 3
+
+⸻
+
+Why Multiple Delimiters Matter
+
+Wrong implementation may create:
+
+["hello", "", "42", "", "libft"]
+
+but correct output:
+
+["hello", "42", "libft"]
+
+⸻
+
+Correct Logic
+
+Skip delimiters FIRST:
+
+while (s[i] == c)
+	i++;
+
+THEN start word.
+
+⸻
+
+Hidden split Edge Cases
+
+⸻
+
+Case 1
+
+ft_split("", ' ')
+
+Expected:
+
+[NULL]
+
+NOT:
+
+* crash
+* NULL
+
+⸻
+
+Case 2
+
+ft_split("     ", ' ')
+
+Expected:
+
+[NULL]
+
+⸻
+
+Case 3
+
+ft_split("abc", ' ')
+
+Expected:
+
+["abc", NULL]
+
+⸻
+
+Case 4
+
+ft_split("a b c", ' ')
+
+Expected:
+
+["a", "b", "c"]
+
+⸻
+
+Why Freeing Is Difficult
+
+Suppose:
+
+malloc word1 -> success
+malloc word2 -> success
+malloc word3 -> FAIL
+
+You must free:
+
+* word1
+* word2
+* array itself
+
+Otherwise:
+
+* memory leak
+
+⸻
+
+Proper Cleanup Pattern
+
+while (count--)
+	free(arr[count]);
+free(arr);
+
+⸻
+
+ft_itoa Deep Explanation
+
+⸻
+
+Why Integers Are Hard
+
+Input:
+
+-1234
+
+Need output:
+
+"-1234"
+
+⸻
+
+Problem 1 — Counting Digits
+
+Need memory size BEFORE allocation.
+
+⸻
+
+Example
+
+1234
+
+Digits:
+
+1234 / 10 = 123
+123 / 10 = 12
+12 / 10 = 1
+1 / 10 = 0
+
+4 digits.
+
+⸻
+
+Problem 2 — Negative Sign
+
+Need extra byte:
+
+-1234\0
+
+6 bytes total.
+
+⸻
+
+Problem 3 — INT_MIN
+
+Most important hidden trap.
+
+⸻
+
+Why This Fails
+
+int n = -2147483648;
+n = -n;
+
+Problem:
+
+positive 2147483648
+does NOT fit in signed int.
+
+Overflow occurs.
+
+⸻
+
+Correct Fix
+
+Use:
+
+long num;
+
+because long is larger.
+
+⸻
+
+How Number Extraction Works
+
+Example:
+
+1234
+
+Last digit:
+
+1234 % 10 = 4
+
+Then:
+
+1234 / 10 = 123
+
+Continue:
+
+* 3
+* 2
+* 1
+
+⸻
+
+Why Writing Backwards Helps
+
+Digits come from end to beginning:
+
+4
+3
+2
+1
+
+So easiest method:
+
+* fill string from back.
+
+⸻
+
+ft_substr Deep Logic
+
+⸻
+
+Example
+
+ft_substr("hello world", 6, 5)
+
+Expected:
+
+"world"
+
+⸻
+
+Memory Visualization
+
+Original:
+
+h e l l o _ w o r l d
+0 1 2 3 4 5 6 7 8 9 10
+
+Start at index 6.
+
+Copy 5 chars.
+
+⸻
+
+Critical Hidden Edge Case
+
+ft_substr("hello", 50, 3)
+
+Must NOT crash.
+
+Must return:
+
+""
+
+allocated empty string.
+
+⸻
+
+Why This Matters
+
+Without protection:
+
+s[start]
+
+reads outside memory.
+
+Undefined behavior.
+
+⸻
+
+Safe Protection
+
+if (start >= ft_strlen(s))
+	return (malloc(1));
+
+Then:
+
+empty[0] = '\0';
+
+⸻
+
+ft_strtrim Internal Algorithm
+
+⸻
+
+Goal
+
+Remove characters from BOTH ends.
+
+Example:
+
+ft_strtrim("///hello///", "/")
+
+⸻
+
+Step 1 — Move Start Forward
+
+///hello///
+^^^
+skip
+
+Stop at:
+
+h
+
+⸻
+
+Step 2 — Move End Backward
+
+///hello///
+         ^^^
+         skip
+
+Stop at:
+
+o
+
+⸻
+
+Final Copy
+
+Copy between:
+
+* start
+* end
+
+⸻
+
+Important Edge Case
+
+ft_strtrim("/////", "/")
+
+Everything removed.
+
+Must return:
+
+""
+
+NOT invalid allocation.
+
+⸻
+
+ft_putnbr_fd Recursion Visualization
+
+⸻
+
+Example
+
+ft_putnbr_fd(1234, 1);
+
+⸻
+
+Recursive Calls
+
+1234
+ └── 123
+      └── 12
+           └── 1
+
+Now printing occurs while returning:
+
+1
+2
+3
+4
+
+⸻
+
+Why Recursion Is Elegant Here
+
+No temporary array needed.
+
+⸻
+
+Linked Lists — Deep Understanding
+
+⸻
+
+Normal Array
+
+[A][B][C]
+
+Continuous memory.
+
+⸻
+
+Linked List
+
+[A] -> [B] -> [C] -> NULL
+
+Each node can exist anywhere in memory.
+
+⸻
+
+Node Structure
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+⸻
+
+Why void *content
+
+Allows storing ANYTHING:
+
+* strings
+* ints
+* structs
+* arrays
+
+Generic container.
+
+⸻
+
+ft_lstadd_back Visualization
+
+⸻
+
+Before
+
+head -> A -> B -> NULL
+
+Add node X.
+
+⸻
+
+Step 1
+
+Find last node:
+
+B
+
+because:
+
+B->next == NULL
+
+⸻
+
+Step 2
+
+Connect:
+
+B->next = X
+
+Result:
+
+head -> A -> B -> X -> NULL
+
+⸻
+
+Common Beginner Crash
+
+Wrong:
+
+while (lst)
+	lst = lst->next;
+lst->next = new;
+
+Problem:
+
+after loop:
+
+lst == NULL
+
+So:
+
+lst->next
+
+crashes.
+
+⸻
+
+Correct
+
+while (lst->next)
+	lst = lst->next;
+
+Stop BEFORE NULL.
+
+⸻
+
+ft_lstclear Deep Explanation
+
+⸻
+
+Why Saving next Matters
+
+Wrong:
+
+free(node);
+node = node->next;
+
+After free:
+
+* node memory destroyed
+* accessing node->next invalid
+
+⸻
+
+Correct
+
+temp = node->next;
+free(node);
+node = temp;
+
+⸻
+
+ft_lstmap — Hardest Bonus Function
+
+⸻
+
+Why It’s Hard
+
+Need:
+
+* create NEW list
+* transform contents
+* handle failures safely
+
+⸻
+
+Example
+
+Original:
+
+1 -> 2 -> 3
+
+Function:
+
+x * 10
+
+New list:
+
+10 -> 20 -> 30
+
+Original unchanged.
+
+⸻
+
+Failure Scenario
+
+Suppose:
+
+node1 success
+node2 success
+node3 malloc fail
+
+Must free:
+
+* transformed contents
+* created nodes
+
+Otherwise leak.
+
+⸻
+
+Those are core C skills.
+
+Remaining libft Functions — Full Implementations + Edge Cases + Deep Explanations
+
+We already covered:
+
+* ft_split
+* ft_substr
+* ft_strtrim
+* ft_itoa
+* ft_strmapi
+* ft_striteri
+* ft_memmove
+* ft_calloc
+* ft_lstclear
+* ft_lstmap
+
+Now let’s continue with important remaining functions from Part 2 and Bonus.
+
+⸻
+
+1. ft_strjoin
+
+⸻
+
+Purpose
+
+Join two strings into a NEW allocated string.
+
+Example:
+
+ft_strjoin("Hello ", "World");
+
+Result:
+
+"Hello World"
+
+⸻
+
+Complete Implementation
+
+#include <stdlib.h>
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*res;
+	size_t	i;
+	size_t	j;
+	if (!s1 || !s2)
+		return (NULL);
+	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		res[i + j] = s2[j];
+		j++;
+	}
+	res[i + j] = '\0';
+	return (res);
+}
+
+⸻
+
+Memory Visualization
+
+Suppose:
+
+s1 = "abc"
+s2 = "de"
+
+Allocate:
+
+[a][b][c][d][e][\0]
+
+6 bytes total.
+
+⸻
+
+Common Mistake
+
+Wrong:
+
+malloc(ft_strlen(s1) + ft_strlen(s2))
+
+Forgot:
+
+* null terminator
+
+Needs:
+
++ 1
+
+⸻
+
+Edge Cases
+
+⸻
+
+Empty strings
+
+ft_strjoin("", "")
+
+Expected:
+
+""
+
+⸻
+
+One empty string
+
+ft_strjoin("abc", "")
+
+Expected:
+
+"abc"
+
+⸻
+
+NULL input
+
+ft_strjoin(NULL, "abc")
+
+Expected:
+
+* return NULL
+
+⸻
+
+Tests
+
+printf("%s\n", ft_strjoin("Hello ", "42"));
+printf("%s\n", ft_strjoin("", ""));
+printf("%s\n", ft_strjoin("abc", ""));
+
+⸻
+
+2. ft_putchar_fd
+
+⸻
+
+Purpose
+
+Write one character to file descriptor.
+
+⸻
+
+Implementation
+
+#include <unistd.h>
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+⸻
+
+Understanding write
+
+Prototype:
+
+ssize_t write(int fd, const void *buf, size_t count);
+
+⸻
+
+Important File Descriptors
+
+FD	Meaning
+0	stdin
+1	stdout
+2	stderr
+
+⸻
+
+Example
+
+ft_putchar_fd('A', 1);
+
+Prints:
+
+A
+
+⸻
+
+Edge Cases
+
+⸻
+
+Invalid fd
+
+ft_putchar_fd('A', -1);
+
+May fail silently.
+
+⸻
+
+3. ft_putstr_fd
+
+⸻
+
+Purpose
+
+Write string to file descriptor.
+
+⸻
+
+Implementation
+
+#include <unistd.h>
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
+
+⸻
+
+Important Protection
+
+if (!s)
+	return ;
+
+Without it:
+
+s[i]
+
+would crash for NULL string.
+
+⸻
+
+Edge Cases
+
+⸻
+
+Empty string
+
+ft_putstr_fd("", 1);
+
+Prints nothing.
+
+⸻
+
+NULL string
+
+Must not crash.
+
+⸻
+
+4. ft_putendl_fd
+
+⸻
+
+Purpose
+
+Write string + newline.
+
+⸻
+
+Implementation
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
+
+⸻
+
+Example
+
+ft_putendl_fd("Hello", 1);
+
+Output:
+
+Hello
+
+(with newline)
+
+⸻
+
+Common Beginner Mistake
+
+Forgetting newline.
+
+⸻
+
+5. ft_putnbr_fd
+
+⸻
+
+Purpose
+
+Print integer.
+
+⸻
+
+Hard Part
+
+Negative numbers.
+
+Especially:
+
+INT_MIN
+
+⸻
+
+Complete Implementation
+
+#include <unistd.h>
+void	ft_putchar_fd(char c, int fd);
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	num;
+	num = n;
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num = -num;
+	}
+	if (num >= 10)
+		ft_putnbr_fd(num / 10, fd);
+	ft_putchar_fd((num % 10) + '0', fd);
+}
+
+⸻
+
+Recursive Visualization
+
+Example:
+
+1234
+
+Calls:
+
+1234
+ -> 123
+    -> 12
+       -> 1
+
+Then prints while returning:
+
+1
+2
+3
+4
+
+⸻
+
+Why Use long
+
+This fails:
+
+int n = -2147483648;
+n = -n;
+
+Overflow.
+
+But:
+
+long num;
+
+works safely.
+
+⸻
+
+Edge Cases
+
+⸻
+
+Zero
+
+ft_putnbr_fd(0, 1);
+
+Expected:
+
+0
+
+⸻
+
+INT_MIN
+
+Critical tester case.
+
+⸻
+
+Bonus Part — Linked Lists
+
+⸻
+
+Structure Reminder
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+⸻
+
+6. ft_lstnew
+
+⸻
+
+Purpose
+
+Create one node.
+
+⸻
+
+Implementation
+
+#include <stdlib.h>
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*node;
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
+}
+
+⸻
+
+Memory Visualization
+
+[node]
+ content -> data
+ next -> NULL
+
+⸻
+
+Edge Cases
+
+⸻
+
+NULL content
+
+Allowed.
+
+ft_lstnew(NULL);
+
+Still valid node.
+
+⸻
+
+7. ft_lstadd_front
+
+⸻
+
+Purpose
+
+Insert node at beginning.
+
+⸻
+
+Implementation
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}
+
+⸻
+
+Visualization
+
+Before:
+
+head -> A -> B
+
+Add X:
+
+X -> A -> B
+head = X
+
+⸻
+
+Important Concept
+
+Need double pointer:
+
+t_list **lst
+
+because head itself changes.
+
+⸻
+
+8. ft_lstsize
+
+⸻
+
+Purpose
+
+Count nodes.
+
+⸻
+
+Implementation
+
+int	ft_lstsize(t_list *lst)
+{
+	int	count;
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
+}
+
+⸻
+
+Edge Cases
+
+⸻
+
+Empty list
+
+NULL
+
+Expected:
+
+0
+
+⸻
+
+9. ft_lstlast
+
+⸻
+
+Purpose
+
+Find final node.
+
+⸻
+
+Implementation
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
+⸻
+
+Common Crash
+
+Wrong:
+
+while (lst)
+	lst = lst->next;
+return (lst);
+
+Returns NULL instead of last node.
+
+⸻
+
+10. ft_lstadd_back
+
+⸻
+
+Purpose
+
+Add node at end.
+
+⸻
+
+Implementation
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = new;
+}
+
+⸻
+
+Important Empty-List Case
+
+If:
+
+*lst == NULL
+
+then new node becomes head.
+
+⸻
+
+11. ft_lstdelone
+
+⸻
+
+Purpose
+
+Free ONE node safely.
+
+⸻
+
+Implementation
+
+#include <stdlib.h>
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+⸻
+
+Important Concept
+
+Two things may need freeing:
+
+node
+content
+
+⸻
+
+Example
+
+[node]
+ content -> malloc d string
+
+Need:
+
+free(content);
+free(node);
+
+⸻
+
+12. ft_lstiter
+
+⸻
+
+Purpose
+
+Apply function to every node.
+
+⸻
+
+Implementation
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
+
+⸻
+
+Difference vs lstmap
+
+Function	Behavior
+lstiter	modifies existing list
+lstmap	creates NEW list
+
+⸻
+
+Hidden Tester Edge Cases
+
+⸻
+
+ft_substr
+
+ft_substr("abc", 100, 5)
+
+Must return:
+
+* allocated empty string
+
+NOT:
+
+* NULL
+* crash
+
+⸻
+
+ft_split
+
+ft_split("::::", ':')
+
+Must return:
+
+[NULL]
+
+⸻
+
+ft_strtrim
+
+ft_strtrim("xxxxx", "x")
+
+Must return:
+
+""
+
+⸻
+
+ft_itoa
+
+ft_itoa(-2147483648)
+
+Critical.
+
+⸻
+
+ft_lstmap
+
+Must free everything on partial allocation failure.
+
+Big Moulinette trap.
+
+⸻
