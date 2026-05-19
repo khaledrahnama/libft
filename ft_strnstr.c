@@ -6,17 +6,13 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:12:25 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/19 17:59:19 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/19 19:26:58 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
 #include <bsd/bsd.h>
 
-/* int main()
-{
-    printf("location of substring : %s" , strnstr("some strings that we search that for a substring" , "that" , 50) );
-} */
 
 char * ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -53,3 +49,4 @@ int main()
     printf(" the result is : %s", result);
     
 }
+

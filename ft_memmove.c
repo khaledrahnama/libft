@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:43:10 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/11 19:46:06 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/19 21:20:41 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,30 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char		*d;
 	const unsigned char	*s;
+	size_t i;
+	i = 0;
 
 	if (!dest && !src)
 		return (NULL);
-	d = dest;
-	s = src;
+	d = (unsigned char*)dest;
+	s = (const unsigned char*)src;
+	
 	if (d > s)
 	{
-		while (n--)
+		i = n;
+		while (i > 0)
 		{
-			d[n] = s[n];
+			d[i] = s[i];
+			i--;
 		}
 	}
 	else
 	{
-		while (n--)
+		i = 0;
+		while (i < n)
 		{
-			*d++ = *s++;
+			d[i] = s[i];
+			i++;
 		}
 	}
 	return (dest);

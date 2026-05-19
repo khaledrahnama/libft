@@ -3,47 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:21 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/19 11:34:56 by khaledrahna      ###   ########.fr       */
+/*   Updated: 2026/05/19 21:20:55 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
-    size_t dst_len = ft_strlen(dst);
-    size_t src_len = ft_strlen(src);
+
     size_t i;
+    i=0;
+  
 
-    if (dstsize <= dst_len)
-        return (dstsize + src_len);
+    size_t dst_len;
+    dst_len = ft_strlen(dst_len);
+    size_t src_len;
+    src_len = ft_strlen(src_len);
 
-    i = 0;
-    while (src[i] && (dst_len + i) < (dstsize - 1))
+
+    while(src[i] && (dst_len + i)< size)
     {
-        dst[dst_len + i] = src[i];
+        dst[dst_len + i]= src[i];
         i++;
     }
-    dst[dst_len + i] = '\0';
+    dst[dst_len+i]='\0';
 
     return (dst_len + src_len);
 }
 
-#include<string.h>
 #include<stdio.h>
+
 int main()
 {
-    char dest[20] = "Hello, ";
-    const char *src = "world!";
-    size_t size = 15;
-
-    size_t result = ft_strlcat(dest, src, size);
-
-    printf("Result: %zu\n", result);
-    printf("Destination: %s\n", dest);
-
-    return 0;
+    printf("%s", ft_strlcat("something", " more", 30));
 }
+
