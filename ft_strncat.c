@@ -1,49 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/10 21:10:21 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/19 11:34:56 by khaledrahna      ###   ########.fr       */
+/*   Created: 2026/05/19 09:24:23 by khaledrahna       #+#    #+#             */
+/*   Updated: 2026/05/19 10:19:34 by khaledrahna      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
+char *ft_strncat(char *dest, const char *src, size_t n)
 {
-    size_t dst_len = ft_strlen(dst);
-    size_t src_len = ft_strlen(src);
+    size_t dest_len = ft_strlen(dest);
     size_t i;
 
-    if (dstsize <= dst_len)
-        return (dstsize + src_len);
-
     i = 0;
-    while (src[i] && (dst_len + i) < (dstsize - 1))
+    while (src[i] && i < n)
     {
-        dst[dst_len + i] = src[i];
+        dest[dest_len + i] = src[i];
         i++;
     }
-    dst[dst_len + i] = '\0';
+    dest[dest_len + i] = '\0';
 
-    return (dst_len + src_len);
+    return (dest);
 }
 
-#include<string.h>
-#include<stdio.h>
+#include <stdio.h>
 int main()
 {
     char dest[20] = "Hello, ";
     const char *src = "world!";
-    size_t size = 15;
 
-    size_t result = ft_strlcat(dest, src, size);
-
-    printf("Result: %zu\n", result);
-    printf("Destination: %s\n", dest);
-
-    return 0;
+    printf("Before concatenation: %s\n", dest);
+    printf("Source: %s\n", src);
+    
+    char *result = ft_strncat(dest, src, 3);
+    printf("Result: %s\n", result);
 }
