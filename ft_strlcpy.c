@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:04 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/15 18:11:30 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/20 12:20:09 by khaledrahna      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ size_t ft_strlcpy(char *dest, const char *src, size_t size)
     return(src_length);
 }
 
-
+/* 
 #include<stdio.h>
 
 int main()
@@ -143,4 +143,4 @@ int main()
         printf("index %d : %d \n", i , dest[i]);
         i++;
     }
-}
+} */
