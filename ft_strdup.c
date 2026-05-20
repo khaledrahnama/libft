@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:13:06 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/16 17:47:23 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/20 12:00:41 by khaledrahna      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include <stdlib.h>
-
+#include "libft.h"
 /* char	*ft_strdup(char *src)
 {
 	char	*copy;
@@ -38,11 +37,11 @@
 }
  */
 
- char *strdup(const char *s)
+ char *ft_strdup(const char *s)
  {
     char * new_string;
     char *start;
-    new_string = malloc(sizeof(char) * strlen(s) + 1);
+    new_string = malloc(sizeof(char) * ft_strlen(s) + 1);
 
 if (!new_string)
 return (NULL);
@@ -59,3 +58,23 @@ while(*s)
 
     return(start);
  }
+
+/* #include <stdio.h>
+int main()
+{
+	const char *original = "Hello, world!";
+	char *copy = ft_strdup(original);
+
+	if (copy)
+	{
+		printf("Original: %s\n", original);
+		printf("Copy: %s\n", copy);
+		free(copy); // Don't forget to free the allocated memory
+	}
+	else
+	{
+		printf("Memory allocation failed.\n");
+	}
+
+	return 0;
+} */
