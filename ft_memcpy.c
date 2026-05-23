@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 14:29:14 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/23 11:51:46 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/23 12:32:35 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char		*d;
 	const unsigned char	*s;
 
-	d = (unsigned char)dest;
-	s = (unsigned char) src;
+	d = (unsigned char*)dest;
+	s = (unsigned char*) src;
 	while (n > 0)
 	{
 		*d = *s;
@@ -69,7 +69,7 @@ int	main(void)
 
 
 
-#include<stdio.h>
+/* #include<stdio.h>
 int main()
 {
 	char str[20] = "abcdef";
@@ -77,4 +77,4 @@ int main()
     ft_memmove(str + 2, str, 4);
 	printf("destination string: %s",str);
 
-} 
+}  */

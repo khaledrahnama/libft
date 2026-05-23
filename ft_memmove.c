@@ -6,47 +6,66 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:43:10 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/23 11:50:39 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/23 13:04:12 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void *ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char* d;
+	const unsigned char *s;
+	d = (unsigned char*) dest ; 
+	s = (const unsigned char*) src;
+	
+	if (!dest && !src)
+		return (NULL);
+
+	if(d < s)
+	{
+		ft_memcpy(dest,src , n);
+	}
+	else
+	{
+		while(n > 0)
+		{
+			n--;
+			d[n]=s[n];
+		}
+	}
+	return(dest);
+}
+
+
+/*  Unefficient using heap memory to solve the overlapping memory issue
 void *ft_memmove(void *dest,const void *src, size_t n)
 {
 	size_t i;
 	i=0;
 	unsigned char* temp;
 	unsigned char* dest_ptr;
-	unsigned char* src_ptr;
-	temp = malloc( n * sizeof(src_ptr));
-	ft_memcpy(temp , src , n);
-	while(temp[i] && i < n)
+	dest_ptr = (unsigned char*)dest;
+
+	if (!dest && !src)
+		return (NULL);
+
+	temp = malloc( n );
+	if(!temp)
+	return(NULL);
+
+	ft_memcpy(temp,src,n);
+	
+	while(i < n)
 	{
 		dest_ptr[i] = temp[i];
 		i++;
 	}
+	free(temp);
 	return(dest);
-}
+} */
 
-/* 
-// works as it is memcpy because temp is pointing to the src and same memory just a different name, it is not a variable that occupy a new address statically 
-void *ft_memmove(void *dest, const void *src, size_t n)
-{
-	unsigned char* temp;
-	temp = (unsigned char*) src;
-	unsigned char* dest_ptr;
-	dest_ptr = dest; 
-	size_t i;
-	i=0;
-	while(temp[i] && i< n )
-	{
-	    dest_ptr[i] = temp[i];
-		i++;
-	}
-	return (dest);
-}
- */
+
 
 /* 
 void	*ft_memmove(void *dest, const void *src, size_t n)
@@ -84,12 +103,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
  */
 
  #include<stdio.h>
- 
+ #include<string.h>
 int main()
 {
 	char str[20] = "abcdef";
 	printf("source string: %s \n",str);
     ft_memmove(str + 2, str, 4);
-	printf("destination string: %s",str);
+	printf("destination string: %s \n",str);
+	char str2[20] = "abcdef";
+	printf("source string: %s \n",str2);
+	memmove(str2+2, str2,4);
+	printf("destination string: %s \n",str2);
 
 } 
