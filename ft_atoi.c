@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:12:39 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/19 08:46:12 by khaledrahna      ###   ########.fr       */
+/*   Updated: 2026/05/23 11:29:55 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int ft_atoi(const char *str)
     }
     return ((int)(result * sign));
 }
-
+/* 
 #include <stdio.h>
 int main()
 {
@@ -52,4 +52,4 @@ int main()
     
     
     return 0;
-} 
+}  */

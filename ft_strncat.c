@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 09:24:23 by khaledrahna       #+#    #+#             */
-/*   Updated: 2026/05/19 10:19:34 by khaledrahna      ###   ########.fr       */
+/*   Updated: 2026/05/23 11:32:21 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char *ft_strncat(char *dest, const char *src, size_t n)
 
     return (dest);
 }
-
+/* 
 #include <stdio.h>
 int main()
 {
@@ -40,3 +40,4 @@ int main()
     char *result = ft_strncat(dest, src, 3);
     printf("Result: %s\n", result);
 }
+ */

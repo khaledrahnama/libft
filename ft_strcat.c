@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 09:09:04 by khaledrahna       #+#    #+#             */
-/*   Updated: 2026/05/19 09:23:43 by khaledrahna      ###   ########.fr       */
+/*   Updated: 2026/05/23 11:32:45 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char *ft_strcat(char *dest, const char *src)
     return (dest);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 int main()
 {
     char dest[20] = "Hello, ";
@@ -43,4 +43,4 @@ int main()
     printf("Destination: %s\n", dest);
 
     return 0;
-}
+} */

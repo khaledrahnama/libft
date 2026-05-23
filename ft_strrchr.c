@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:55 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/16 17:04:44 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/23 11:31:12 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	len = ft_strlen(s);
 	while (len >= 0)
 	{
-		if (s[len] == (char)c)
+		if ((unsigned char) s[len] == (unsigned char)c)
 			return ((char *)&s[len]);
 		len--;
 	}
@@ -62,7 +62,7 @@ int	main(void)
  */
 
  
-
+/* 
 #include <stdio.h>
 #include <string.h>
 
@@ -98,4 +98,4 @@ int	main(void)
 	printf("Length using pointer math: %ld\n", ptr - str);
 	if (*ptr == '\0')
 		printf("found null terminator\n");
-} 
+}  */

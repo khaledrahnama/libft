@@ -6,7 +6,11 @@
 /*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:04 by krahnama          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/05/20 12:20:09 by khaledrahna      ###   ########.fr       */
+=======
+/*   Updated: 2026/05/23 11:33:26 by krahnama         ###   ########.fr       */
+>>>>>>> 56bbb2f (some changes)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +129,13 @@ size_t ft_strlcpy(char *dest, const char *src, size_t size)
     return(src_length);
 }
 
+<<<<<<< HEAD
 /* 
 #include<stdio.h>
+=======
+
+/* #include<stdio.h>
+>>>>>>> 56bbb2f (some changes)
 
 int main()
 {

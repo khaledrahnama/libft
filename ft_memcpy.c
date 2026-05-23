@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 14:29:14 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/10 19:14:48 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/23 11:51:46 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char		*d;
 	const unsigned char	*s;
 
-	d = dest;
-	s = src;
+	d = (unsigned char)dest;
+	s = (unsigned char) src;
 	while (n > 0)
 	{
 		*d = *s;
@@ -30,6 +30,25 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+
+/* 
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char		*d;
+	const unsigned char	*s;
+
+	d = (unsigned char)dest;
+	s = (unsigned char) src;
+	while (n > 0)
+	{
+		*d = *s;
+		d++;
+		s++;
+		n--;
+	}
+	return (dest);
+}
+ */
 /*
 int	main(void)
 {
@@ -47,3 +66,15 @@ int	main(void)
 	printf("dest after: %s \n",dest2);
 }
 	*/
+
+
+
+#include<stdio.h>
+int main()
+{
+	char str[20] = "abcdef";
+	printf("source string: %s \n",str);
+    ft_memmove(str + 2, str, 4);
+	printf("destination string: %s",str);
+
+} 

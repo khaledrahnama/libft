@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:12:25 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/19 19:26:58 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/23 11:33:01 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char * ft_strnstr(const char *big, const char *little, size_t len)
     return(NULL);
 }
 
-#include<stdio.h>
+/* #include<stdio.h>
 int main()
 {
     char *big = {"something that we need to search inside"};
@@ -48,5 +48,5 @@ int main()
     result = ft_strnstr(big, little, 30);
     printf(" the result is : %s", result);
     
-}
+} */
 

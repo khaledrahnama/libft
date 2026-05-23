@@ -6,7 +6,11 @@
 /*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:13:06 by krahnama          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/05/20 12:00:41 by khaledrahna      ###   ########.fr       */
+=======
+/*   Updated: 2026/05/23 11:31:00 by krahnama         ###   ########.fr       */
+>>>>>>> 56bbb2f (some changes)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +40,13 @@
 	return (start_copy);
 }
  */
+<<<<<<< HEAD
 
  char *ft_strdup(const char *s)
+=======
+/* 
+ char *strdup(const char *s)
+>>>>>>> 56bbb2f (some changes)
  {
     char * new_string;
     char *start;
@@ -58,6 +67,7 @@ while(*s)
 
     return(start);
  }
+<<<<<<< HEAD
 
 /* #include <stdio.h>
 int main()
@@ -78,3 +88,6 @@ int main()
 
 	return 0;
 } */
+=======
+ */
+>>>>>>> 56bbb2f (some changes)

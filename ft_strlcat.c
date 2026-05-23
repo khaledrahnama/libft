@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:21 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/19 21:26:16 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/23 11:31:46 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
     return (dst_len + src_len);
 }
 
-#include<stdio.h>
+/* #include<stdio.h>
 
 int main()
 {
@@ -47,4 +47,4 @@ int main()
     printf("%zu", ft_strlcat(dst, " more", 30));
 
 }
-
+ */

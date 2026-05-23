@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:11:44 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/17 16:58:26 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/23 11:33:11 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 
 }
 
-#include<string.h>
+/* #include<string.h>
 #include<stdio.h>
 int main()
 {
     printf("output: %d \n" , strncmp("something","thing",10));
         printf("output: %d\n" , ft_strncmp("something","thing",10));
 
-}
+} */
