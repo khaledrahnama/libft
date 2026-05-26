@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:08:00 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/15 14:09:14 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/25 20:42:34 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,53 @@ void	ft_bzero(void *s, size_t n)
  */
 
 #include "libft.h"
-
+/* 
  void ft_bzero(void *s, size_t n)
 {
     unsigned char *ptr = s;
     while (n--)
         *ptr++ = 0;
+} */
+
+/* void ft_bzero(void *s, size_t n)
+{
+	unsigned char *ptr;
+	ptr = (unsigned char*) s ;
+
+	ft_memset(ptr, 0 , n);
+}
+ */
+void ft_bzero(void *s, size_t n)
+{
+	unsigned char* ptr;
+	ptr = (unsigned char*) s;
+size_t i;
+i=0;
+	while(i<n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+}
+
+#include<stdio.h>
+
+int main(void)
+{
+    char str[] = "Hello";
+
+    printf("Before: %s\n", str);
+
+    ft_bzero(str, 3);
+
+    printf("After bytes:\n");
+
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%s ", str[i]);
+    }
+
+    printf("\n");
+
+    return (0);
 }

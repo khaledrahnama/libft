@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/08 19:49:49 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/25 20:44:27 by krahnama         ###   ########.fr       */
+/*   Created: 2026/05/26 15:59:49 by krahnama          #+#    #+#             */
+/*   Updated: 2026/05/26 18:04:52 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalnum(int c)
+void *ft_strjoin(char const* s1,char const* s2)
 {
-    return(ft_isalpha(c) || ft_isdigit(c));
+    
+
 }

@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:13:06 by krahnama          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/05/20 12:00:41 by khaledrahna      ###   ########.fr       */
-=======
-/*   Updated: 2026/05/23 11:31:00 by krahnama         ###   ########.fr       */
->>>>>>> 56bbb2f (some changes)
+/*   Updated: 2026/05/26 10:40:55 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,36 +36,27 @@
 	return (start_copy);
 }
  */
-<<<<<<< HEAD
 
  char *ft_strdup(const char *s)
-=======
-/* 
- char *strdup(const char *s)
->>>>>>> 56bbb2f (some changes)
  {
+	size_t i;
+	i=0;
     char * new_string;
-    char *start;
-    new_string = malloc(sizeof(char) * ft_strlen(s) + 1);
+    new_string = malloc(ft_strlen(s) + 1);
 
 if (!new_string)
 return (NULL);
 
-start = new_string;
-
-while(*s)
+while(s[i])
 {
-    *new_string = *s;
-    s++;
-    new_string++;
+    new_string[i] = s[i];
+	i++;
 }
-*new_string = '\0';
-
-    return(start);
+new_string[i] = '\0';
+    return(new_string);
  }
-<<<<<<< HEAD
 
-/* #include <stdio.h>
+#include <stdio.h>
 int main()
 {
 	const char *original = "Hello, world!";
@@ -87,7 +74,4 @@ int main()
 	}
 
 	return 0;
-} */
-=======
- */
->>>>>>> 56bbb2f (some changes)
+} 

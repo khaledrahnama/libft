@@ -6,13 +6,13 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:41 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/16 15:28:28 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/25 21:01:02 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+/* char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
@@ -23,8 +23,42 @@ char	*ft_strchr(const char *s, int c)
 	if ((unsigned char)c == '\0')
 		return ((char *)s);
 	return (NULL);
+} */
+
+char *ft_strchr(const char *s, int c)
+{
+	
+	while(*s)
+	{
+		if(*s == (unsigned char)c)
+		return ((char*)s);
+		s++;
+	}
+		if(*s == (unsigned char)c)
+		return ((char*)s);
+
+	return (NULL);
 }
 
+
+
+/* char	*ft_strchr(const char *s, int c)
+{
+	size_t i;
+	i = 0;
+	size_t length;
+	length = ft_strlen(s);
+	while ( i <= length)
+	{
+		if ((unsigned char) s[i] == (unsigned char)c)
+			return ((char *) &s[i]);
+		i++;
+	}
+		return (NULL);
+}
+ */
+
+ 
 /* 
 
 #include <stdio.h>
@@ -57,3 +91,32 @@ int	main(void)
 	if (*ptr == '\0')
 		printf("found null terminator\n");
 } */
+
+
+
+#include <stdio.h>
+#include "libft.h"
+
+int main(void)
+{
+    char str[] = "hello";
+
+    char *ptr1 = ft_strchr(str, 'e');
+    char *ptr2 = ft_strchr(str, 'z');
+    char *ptr3 = ft_strchr(str, '\0');
+
+    if (ptr1)
+        printf("Found 'e': %s\n", ptr1);
+    else
+        printf("'e' not found\n");
+
+    if (ptr2)
+        printf("Found 'z': %s\n", ptr2);
+    else
+        printf("'z' not found\n");
+
+    if (ptr3)
+        printf("Found '\\0' at index: %ld\n", ptr3 - str);
+
+    return (0);
+}
