@@ -47,54 +47,55 @@ void	ft_bzero(void *s, size_t n)
  */
 
 #include "libft.h"
-/* 
+/*
  void ft_bzero(void *s, size_t n)
 {
-    unsigned char *ptr = s;
-    while (n--)
-        *ptr++ = 0;
-} */
+	unsigned char	*ptr;
+	unsigned char	*ptr;
 
+	ptr = s;
+	while (n--)
+		*ptr++ = 0;
+} */
 /* void ft_bzero(void *s, size_t n)
 {
-	unsigned char *ptr;
 	ptr = (unsigned char*) s ;
-
 	ft_memset(ptr, 0 , n);
 }
  */
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char* ptr;
-	ptr = (unsigned char*) s;
-size_t i;
-i=0;
-	while(i<n)
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
 		ptr[i] = '\0';
 		i++;
 	}
 }
 
-/* 
-#include<stdio.h>
+/*
+#include <stdio.h>
 
-int main(void)
+int	main(void)
 {
-    char str[] = "Hello";
+	char str[] = "Hello";
 
-    printf("Before: %s\n", str);
+	printf("Before: %s\n", str);
 
-    ft_bzero(str, 3);
+	ft_bzero(str, 3);
 
-    printf("After bytes:\n");
+	printf("After bytes:\n");
 
-    for (int i = 0; i < 5; i++)
-    {
-        printf("%d ", str[i]);
-    }
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%d ", str[i]);
+	}
 
-    printf("\n");
+	printf("\n");
 
-    return (0);
+	return (0);
 } */
