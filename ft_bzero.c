@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:08:00 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/25 20:42:34 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/29 10:29:12 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ i=0;
 	}
 }
 
+/* 
 #include<stdio.h>
 
 int main(void)
@@ -90,10 +91,10 @@ int main(void)
 
     for (int i = 0; i < 5; i++)
     {
-        printf("%s ", str[i]);
+        printf("%d ", str[i]);
     }
 
     printf("\n");
 
     return (0);
-}
+} */
