@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 14:29:14 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/25 23:09:38 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 11:03:02 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const unsigned char	*s;
 
 	d = (unsigned char*)dest;
-	s = (unsigned char*) src;
+	s = (const unsigned char*) src;
 	
 	size_t i;
 	i = 0;
 
-	if(!dest && !src)
+	if(!dest || !src)
 	return (NULL);
 	
 	while (n > 0)

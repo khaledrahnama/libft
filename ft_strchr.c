@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:41 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/25 21:01:02 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 11:03:18 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	main(void)
 } */
 
 
-
+/* 
 #include <stdio.h>
 #include "libft.h"
 
@@ -119,4 +119,4 @@ int main(void)
         printf("Found '\\0' at index: %ld\n", ptr3 - str);
 
     return (0);
-}
+} */

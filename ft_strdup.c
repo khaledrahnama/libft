@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:13:06 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/26 10:40:55 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 11:03:20 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ while(s[i])
 new_string[i] = '\0';
     return(new_string);
  }
-
+/* 
 #include <stdio.h>
 int main()
 {
@@ -75,3 +75,4 @@ int main()
 
 	return 0;
 } 
+ */

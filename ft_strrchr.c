@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:55 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/23 11:31:12 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 11:03:14 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	len;
+	size_t len;
 
 	len = ft_strlen(s);
 	while (len >= 0)

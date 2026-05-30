@@ -3,48 +3,39 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+         #
+#    By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/06 11:04:54 by khaledrahna       #+#    #+#              #
-#    Updated: 2026/05/18 19:31:15 by khaledrahna      ###   ########.fr        #
+#    Updated: 2026/05/30 11:02:51 by krahnama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# ── Variables ─────────────────────────────────────────────
-NAME     = libft.a
-CC       = cc
-CFLAGS   = -Wall -Wextra -Werror
-TEST_BIN = tests/test_all
+NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+SRCS = ft_strlen.c ft_isdigit.c ft_isalpha.c \
+       ft_isalnum.c ft_isascii.c ft_isprint.c \
+	   ft_isupper.c ft_islower.c ft_memcmp.c \
+	   ft_memcpy.c ft_memmove.c ft_memset.c \
+	   ft_memchr.c ft_strrchr.c
+OBJS = $(SRCS:.c=.o)
 
-SRCS     = ft_strlen.c \
-           ft_isdigit.c \
-           ft_isalpha.c
-OBJS     = $(SRCS:.c=.o)
-
-# ── Rules ─────────────────────────────────────────────────
 all: $(NAME)
 
-$(NAME): $(OBJS)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
-%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-test: $(NAME)
-	$(CC) $(CFLAGS) tests/test_all.c -L. -lft -o $(TEST_BIN)
-	./$(TEST_BIN)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-re: fclean all
-
-.PHONY: all clean fclean re test
+test: $(NAME)
+	cc -Wall -Wextra -Werror tests/test_ft_strlen.c -L. -lft -o tests/test_strlen
+	./tests/test_strlen

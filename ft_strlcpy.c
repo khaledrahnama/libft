@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:04 by krahnama          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/05/20 12:20:09 by khaledrahna      ###   ########.fr       */
-=======
-/*   Updated: 2026/05/23 11:33:26 by krahnama         ###   ########.fr       */
->>>>>>> 56bbb2f (some changes)
+/*   Updated: 2026/05/30 11:02:21 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,13 +125,10 @@ size_t ft_strlcpy(char *dest, const char *src, size_t size)
     return(src_length);
 }
 
-<<<<<<< HEAD
 /* 
 #include<stdio.h>
-=======
 
 /* #include<stdio.h>
->>>>>>> 56bbb2f (some changes)
 
 int main()
 {

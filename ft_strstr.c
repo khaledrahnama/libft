@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 18:01:51 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/19 18:17:35 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 11:03:09 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ char *ft_strstr(const char *haystack, const char *needle)
 }
 
 
-#include <stdio.h>
+/* #include <stdio.h>
  int main()
 {
     printf("location of substring : %s" , ft_strstr("some strings thatthat we search that for a substring" , "that") );
-} 
+}  */

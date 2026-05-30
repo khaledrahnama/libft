@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:43:10 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/23 13:04:12 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 11:02:47 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 }
 
 
-/*  Unefficient using heap memory to solve the overlapping memory issue
+/*   using heap memory to solve the overlapping memory issue (unefficient solution)
 void *ft_memmove(void *dest,const void *src, size_t n)
 {
 	size_t i;
@@ -102,7 +102,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 }
  */
 
- #include<stdio.h>
+/*  #include<stdio.h>
  #include<string.h>
 int main()
 {
@@ -115,4 +115,4 @@ int main()
 	memmove(str2+2, str2,4);
 	printf("destination string: %s \n",str2);
 
-} 
+}  */

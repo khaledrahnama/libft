@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 14:49:25 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/24 13:10:41 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 11:02:33 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,54 +16,56 @@ size_t count_word(char const* s, char c)
 {
     size_t counter;
     size_t i;
-    while(s[i] && s[i]!= c)
-    {i++;
-    if(s[i]==c)
-    counter++;
+    i=0;
+    counter=0;
+    while(s[i])
+    {
+        while(s[i] == c)
+        i++;
+
+        if (s[i])
+        counter++;
+
+        while(s[i] && s[i] != c)
+        {
+            i++;
+        }
     }
     return (counter);
 }
 
+
+size_t word_length(char const* s, char c)
+{
+    
+}
 char **ft_split(char const* s, char c)
 {
-    size_t l;
-    l = 0;
+    size_t counter = count_word(s,c);
+    char **result;
+    size_t i;
+    i = 0 ; 
 
-    size_t count_word;
-    count_word =0;
-
-    size_t w;
-    w=0;
-
-    char const* ptr;
-    ptr = s;
-
-    if(!s)
-    return (NULL);
-
-    while(s[l] && s[l] != c)
+    char *word_start;
+    while(s[i])
     {
-        if(s[l]== c && )
-        l++;
+        if(s[i]!= c)
+        
+    }
+   
+    while(s[i])
+    {
+        if (s[i] != c)
+        {
+        while(s[i] != c)
+        {
+            result[counter][i] = s[i];
+            i++;
+        }
+        }
+        i++;
 
     }
-    l=0;
-
-    char **answer;
-    answer = malloc(strlen(s)+count);
-    if(!answer)
-    return(NULL);
-      
-        while(s[l] && w < ount )
-        {
-            answer[w][l] = s[l];    
-        if(s[l] != c)
-            {
-                w++;
-            }
-            l++;       
-        }          
-return(answer);
 }
 
 
