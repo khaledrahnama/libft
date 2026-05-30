@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:55 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 11:03:14 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 20:45:44 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,30 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t len;
+	size_t	len;
 
 	len = ft_strlen(s);
 	while (len >= 0)
 	{
-		if ((unsigned char) s[len] == (unsigned char)c)
+		if ((unsigned char)s[len] == (unsigned char)c)
 			return ((char *)&s[len]);
 		len--;
 	}
 	return (NULL);
-} 
+}
 
-
-/* 
-char *ft_strrchr(const char *s, int c)
+/*
+char	*ft_strrchr(const char *s, int c)
 {
-	const char *start;
+	const char	*start;
 
 	start = s;
-
 	while (*s)
 	{
 		s++;
 	}
 	if ((unsigned char)c == '\0')
 		return ((char *)s);
-
 	while (s >= start)
 	{
 		if ((unsigned char)*s == (unsigned char)c)
@@ -61,8 +58,7 @@ int	main(void)
 }
  */
 
- 
-/* 
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -92,7 +88,7 @@ int	main(void)
 	printf("%s \n", strrchr(str, 'x'));
 	printf("%s \n", strrchr(str, '\0'));
 	printf("%s \n", strrchr(str, 'g'));
-	
+
 	printf("address of end : %p \n", ptr);
 	printf("character there: %d\n", *ptr);
 	printf("Length using pointer math: %ld\n", ptr - str);
