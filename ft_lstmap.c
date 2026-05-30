@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 14:47:54 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 18:43:30 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/31 01:19:45 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_node;
 	void	*content;
 
+	if (!f || !del)
+		return (NULL);
 	new_list = NULL;
 	while (lst)
 	{

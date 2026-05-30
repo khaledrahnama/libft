@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:10:04 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 19:07:42 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/31 01:29:33 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,20 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	char		*ptr;
-	const char	*ptr_src;
-	size_t		src_length;
+	size_t	i;
+	size_t	src_len;
 
-	ptr_src = src;
-	ptr = dest;
-	src_length = 0;
-	while (*src && size > 1)
+	i = 0;
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (src_len);
+	while (src[i] && i < size - 1)
 	{
-		*ptr = *src;
-		ptr++;
-		src++;
-		size--;
+		dest[i] = src[i];
+		i++;
 	}
-	if (size > 0)
-		*ptr = '\0';
-	while (*ptr_src)
-	{
-		ptr_src++;
-		src_length++;
-	}
-	return (src_length);
+	dest[i] = '\0';
+	return (src_len);
 }
 
 /* char *ft_strcpy(char *dest, const char *src)
