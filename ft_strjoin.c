@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 15:59:49 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 19:15:41 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 21:22:16 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	joined = malloc(len_s1 + len_s2 + 1);
 	if (!joined)
 		return (NULL);
-	copy_str(joined, s1, 0);
-	copy_str(joined, s2, len_s1);
+	ft_memcpy(joined, s1, len_s1);
+	ft_memcpy(joined + len_s1, s2, len_s2);
 	joined[len_s1 + len_s2] = '\0';
 	return (joined);
 }
@@ -62,8 +62,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	joined[i + j] = '\0';
 	return (joined);
 }
+*/
 
-
+/*
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
