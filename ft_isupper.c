@@ -6,11 +6,11 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 16:39:48 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 11:02:28 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 20:44:47 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isupper(int c)
+int	ft_isupper(int c)
 {
-    return(c>='A' && c<='Z');
+	return (c >= 'A' && c <= 'Z');
 }

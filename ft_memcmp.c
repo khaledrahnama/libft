@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:11:30 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 17:33:31 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 19:01:50 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (n--)
 	{
 		if (*s1_ptr != *s2_ptr)
-        return (*s1_ptr - *s2_ptr);
+			return (*s1_ptr - *s2_ptr);
 		s1_ptr++;
 		s2_ptr++;
 	}
 	return (0);
 }
-/* 
+/*
 #include <stdio.h>
+
 int	main(void)
 {
 	char s1[] = "abcdffghsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf";

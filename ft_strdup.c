@@ -6,13 +6,32 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:13:06 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 11:03:20 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 19:03:58 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-/* char	*ft_strdup(char *src)
+
+char	*ft_strdup(const char *s)
+{
+	size_t	i;
+	char	*new_string;
+
+	i = 0;
+	new_string = malloc(ft_strlen(s) + 1);
+	if (!new_string)
+		return (NULL);
+	while (s[i])
+	{
+		new_string[i] = s[i];
+		i++;
+	}
+	new_string[i] = '\0';
+	return (new_string);
+}
+
+/*
+ char	*ft_strdup(char *src)
 {
 	char	*copy;
 	char	*original_source;
@@ -35,33 +54,16 @@
 	*copy = '\0';
 	return (start_copy);
 }
- */
 
- char *ft_strdup(const char *s)
- {
-	size_t i;
-	i=0;
-    char * new_string;
-    new_string = malloc(ft_strlen(s) + 1);
 
-if (!new_string)
-return (NULL);
-
-while(s[i])
-{
-    new_string[i] = s[i];
-	i++;
-}
-new_string[i] = '\0';
-    return(new_string);
- }
-/* 
 #include <stdio.h>
-int main()
-{
-	const char *original = "Hello, world!";
-	char *copy = ft_strdup(original);
 
+int	main(void)
+{
+	const char	*original = "Hello, world!";
+	char		*copy;
+
+	copy = ft_strdup(original);
 	if (copy)
 	{
 		printf("Original: %s\n", original);
@@ -72,7 +74,6 @@ int main()
 	{
 		printf("Memory allocation failed.\n");
 	}
-
-	return 0;
-} 
+	return (0);
+}
  */

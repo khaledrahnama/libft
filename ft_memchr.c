@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:11:11 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 17:33:25 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 19:01:44 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*start;
 
-	start = (const unsigned char*) s;
+	start = (const unsigned char *)s;
 	while (n--)
 	{
 		if (*start == (unsigned char)c)
@@ -25,8 +25,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+
 /*
 #include <stdio.h>
+
 int	main(void)
 {
 	char str[]="abcdefghi";

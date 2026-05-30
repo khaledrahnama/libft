@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khaledrahnama <khaledrahnama@student.42    +#+  +:+       +#+        */
+/*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 16:43:26 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/20 11:54:59 by khaledrahna      ###   ########.fr       */
+/*   Updated: 2026/05/30 20:44:06 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_islower(int c)
+int	ft_islower(int c)
 {
-    return(c>='a' && c<='z');
+	return (c >= 'a' && c <= 'z');
 }
