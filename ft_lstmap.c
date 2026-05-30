@@ -6,95 +6,96 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 14:47:54 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 17:33:14 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 18:43:30 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void(*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-    t_list *new_list;
-    t_list *new_node;
-    void *content;
-    new_list = NULL;
-    while(lst)
-    {
-        content = f(lst -> content);
-        new_node = ft_lstnew(content);
-        if(!new_node)
-        {
-            del(content);
-            ft_lstclear(&new_list,del);
-            return(NULL);
-        }
-        ft_lstadd_back(&new_list,new_node);
-        lst = lst->next;
-    }
-    return(new_list);
+	t_list	*new_list;
+	t_list	*new_node;
+	void	*content;
+
+	new_list = NULL;
+	while (lst)
+	{
+		content = f(lst->content);
+		new_node = ft_lstnew(content);
+		if (!new_node)
+		{
+			del(content);
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
+	}
+	return (new_list);
 }
 
-
+/*
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-void del(void *ptr)
+void	del(void *ptr)
 {
-    free(ptr);
+	free(ptr);
 }
 
-void *add_title(void *content)
+void	*add_title(void *content)
 {
-    char *name = (char *)content;
-    char *result = malloc(strlen(name) + 5); // "Sir " + '\0'
+	char	*name;
 
-    if (!result)
-        return (NULL);
-
-    sprintf(result, "Sir %s", name);
-    return (result);
+	name = (char *)content;
+	char *result = malloc(ft_strlen(name) + 5); // "Sir " + '\0'
+	if (!result)
+		return (NULL);
+	sprintf(result, "Sir %s", name);
+	return (result);
 }
 
-void print_list(t_list *lst)
+void	print_list(t_list *lst)
 {
-    while (lst)
-    {
-        printf("%s\n", (char *)lst->content);
-        lst = lst->next;
-    }
+	while (lst)
+	{
+		printf("%s\n", (char *)lst->content);
+		lst = lst->next;
+	}
 }
 
-int main(void)
+int	main(void)
 {
-    t_list *node1;
-    t_list *node2;
-    t_list *node3;
+	t_list *node1;
+	t_list *node2;
+	t_list *node3;
 
-    t_list *original;
-    t_list *mapped;
+	t_list *original;
+	t_list *mapped;
 
-    node1 = ft_lstnew(strdup("Arthur"));
-    node2 = ft_lstnew(strdup("Merlin"));
-    node3 = ft_lstnew(strdup("Lancelot"));
+	node1 = ft_lstnew(ft_strdup("Arthur"));
+	node2 = ft_lstnew(ft_strdup("Merlin"));
+	node3 = ft_lstnew(ft_strdup("Lancelot"));
 
-    node1->next = node2;
-    node2->next = node3;
-    node3->next = NULL;
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = NULL;
 
-    original = node1;
+	original = node1;
 
-    printf("Original list:\n");
-    print_list(original);
+	printf("Original list:\n");
+	print_list(original);
 
-    mapped = ft_lstmap(original, add_title, del);
+	mapped = ft_lstmap(original, add_title, del);
 
-    printf("\nMapped list:\n");
-    print_list(mapped);
+	printf("\n Mapped list:\n");
+	print_list(mapped);
 
-    ft_lstclear(&original, del);
-    ft_lstclear(&mapped, del);
+	ft_lstclear(&original, del);
+	ft_lstclear(&mapped, del);
 
-    return (0);
-}
+	return (0);
+} */

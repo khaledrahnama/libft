@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 09:55:17 by khaledrahna       #+#    #+#             */
-/*   Updated: 2026/05/30 17:25:48 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 17:41:38 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+char *ft_strdup(const char *s);
 
 void    *ft_calloc(size_t nmemb, size_t size);
 char *ft_strstr(const char *haystack, const char *needle);
