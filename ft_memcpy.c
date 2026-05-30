@@ -6,38 +6,33 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 14:29:14 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 17:33:33 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/30 18:56:15 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/* #include <string.h>
-#include <stdio.h> */
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char		*d;
 	const unsigned char	*s;
+	size_t				i;
 
-	d = (unsigned char*)dest;
-	s = (const unsigned char*) src;
-	
-	size_t i;
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
 	i = 0;
-
-	if(!dest || !src)
-	return (NULL);
-	
+	if (!dest || !src)
+		return (NULL);
 	while (n > 0)
 	{
-		d [i] = s[i];
+		d[i] = s[i];
 		n--;
 		i++;
 	}
 	return (dest);
 }
 
-/* 
+/*
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char		*d;
@@ -54,8 +49,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
- */
-/*
+
 int	main(void)
 {
 	char	dest1[4];
@@ -73,14 +67,12 @@ int	main(void)
 }
 	*/
 
-
-
 /* #include<stdio.h>
-int main()
+int	main(void)
 {
 	char str[20] = "abcdef";
 	printf("source string: %s \n",str);
-    ft_memmove(str + 2, str, 4);
+	ft_memmove(str + 2, str, 4);
 	printf("destination string: %s",str);
 
 }  */
