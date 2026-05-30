@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/17 20:08:22 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 17:29:35 by krahnama         ###   ########.fr       */
+/*   Created: 2026/05/30 15:11:14 by krahnama          #+#    #+#             */
+/*   Updated: 2026/05/30 17:31:12 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void ft_lstadd_back(t_list **lst, t_list *new)
 {
+    t_list *current;
+
     if (!lst || !new)
         return;
 
-    new->next = *lst;
-    *lst = new;
+    if (*lst == NULL)
+    {
+        *lst = new;
+        return;
+    }
+
+    current = *lst;
+
+    while (current->next)
+        current = current->next;
+
+    current->next = new;
 }
 
+
 /*
+
 #include "libft.h"
 #include <stdio.h>
 
@@ -34,7 +48,6 @@ void print_list(t_list *lst)
     }
     printf("NULL\n");
 }
-
 
 int main(void)
 {
@@ -49,19 +62,13 @@ int main(void)
     node2 = ft_lstnew("world");
     node3 = ft_lstnew("libft");
 
-    printf("Initial list:\n");
+    ft_lstadd_back(&head, node1);
     print_list(head);
 
-    ft_lstadd_front(&head, node1);
-    printf("\nAfter adding node1:\n");
+    ft_lstadd_back(&head, node2);
     print_list(head);
 
-    ft_lstadd_front(&head, node2);
-    printf("\nAfter adding node2:\n");
-    print_list(head);
-
-    ft_lstadd_front(&head, node3);
-    printf("\nAfter adding node3:\n");
+    ft_lstadd_back(&head, node3);
     print_list(head);
 
     return (0);
