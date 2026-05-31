@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 14:49:25 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/30 22:06:29 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/31 03:54:51 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,79 +94,6 @@ char	**ft_split(char const *s, char c)
 }
 
 /*
-size_t		word_length(char const *s, char c);
-static void	free_split(char **result, size_t i);
-
-size_t	count_word(char const *s, char c)
-{
-	size_t	i;
-	size_t	counter;
-
-	i = 0;
-	counter = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i])
-			counter++;
-		while (s[i] && s[i] != c)
-			i++;
-	}
-	return (counter);
-}
-
-size_t	word_length(char const *s, char c)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (i);
-}
-
-static void	free_split(char **result, size_t i)
-{
-	while (i > 0)
-		free(result[--i]);
-	free(result);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**result;
-	size_t	i;
-	size_t	word;
-	size_t	len;
-	size_t	count;
-
-	if (!s)
-		return (NULL);
-	count = count_word(s, c);
-	result = malloc((count + 1) * sizeof(char *));
-	if (!result)
-		return (NULL);
-	i = 0;
-	word = 0;
-	while (word < count)
-	{
-		while (s[i] == c)
-			i++;
-		len = word_length(&s[i], c);
-		result[word] = malloc(len + 1);
-		if (!result[word])
-			return (free_split(result, word), NULL);
-		ft_memcpy(result[word], &s[i], len);
-		result[word][len] = '\0';
-		i += len;
-		word++;
-	}
-	result[word] = NULL;
-	return (result);
-}
-
-
 #include "libft.h"
 #include <stdio.h>
 
