@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 11:00:19 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/31 00:35:58 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/31 02:04:52 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	res[i] = '\0';
 	return (res);
 }
+
 /* #include <stdio.h>
 #include <stdlib.h>
 

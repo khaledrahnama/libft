@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 21:12:25 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/31 00:29:12 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/31 02:00:13 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	if (*little == '\0')
+	if (!*little)
 		return ((char *)big);
-	while (i < len)
+	i = 0;
+	while (i < len && big[i])
 	{
 		j = 0;
-		while ((i + j) < len
+		while (i + j < len
 			&& little[j]
-			&& big[i + j]
 			&& big[i + j] == little[j])
 			j++;
 		if (little[j] == '\0')
-			return ((char *)&big[i]);
+			return ((char *)(big + i));
 		i++;
 	}
 	return (NULL);

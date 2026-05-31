@@ -6,7 +6,7 @@
 /*   By: krahnama <krahnama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 21:29:11 by krahnama          #+#    #+#             */
-/*   Updated: 2026/05/31 01:11:31 by krahnama         ###   ########.fr       */
+/*   Updated: 2026/05/31 02:28:20 by krahnama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 }
 
 /*
+
 #include "libft.h"
 #include <stdio.h>
 
